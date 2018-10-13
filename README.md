@@ -7,7 +7,7 @@ This has been adapted from [this example](https://github.com/xanderdunn/skaar/re
 
 - Skyrim\*
     - The Creation Kit\*
-- [Python 3](https://www.python.org/downloads/) for the build script
+- [Python 3.6](https://www.python.org/downloads/) for the build script
 - [Visual Studio 2017](https://visualstudio.microsoft.com/vs/express/)
     - "VC++ 2017 version 15.8 v14.15 latest v141 tools"
     - "Windows Universal CRT SDK"
@@ -29,6 +29,16 @@ This will compile the plugin and the associated Papyrus script to the `Debug` di
 python build.py release
 ```
 
-Which will compile to the `Release` directory.
+Which will compile to the `Release` directory. You can then use the following to install the compiled plugin and scripts to your Skyrim installation's directory:
+
+```
+python build.py install
+```
+
+Or:
+
+```
+python build.py install --release
+```
 
 Otherwise follow [this guide](https://github.com/xanderdunn/skaar/wiki/SKSE%3A-Getting-Started).

@@ -1,3 +1,3 @@
-scriptName ExportPlugin Hidden
+ScriptName ExportPlugin Hidden
 
 float Function MyTest() global native
