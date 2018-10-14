@@ -28,7 +28,7 @@ python build.py
 This will compile the plugin and any Papyrus scripts in the `plugin\scripts` directory to the `Debug` directory. When you have finished developing and are ready to compile a release version, run the following:
 
 ```
-python build.py release
+python build.py --release
 ```
 
 This will compile to the `Release` directory. You can then use the following to install the compiled plugin and scripts to your Skyrim installation's directory:
