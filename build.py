@@ -1,12 +1,9 @@
+import configparser
 import os
 import shutil
 import subprocess
 import sys
 
-
-
-def root_path():
-   return os.path.dirname(os.path.realpath(__file__))
 
 
 def search_arguments(needle):
@@ -24,12 +21,27 @@ def configuration():
    return "Release" if search_arguments("--release") else "Debug"
 
 
+def root_path():
+   return os.path.dirname(os.path.realpath(__file__))
+
+
+def read_ini():
+   ini = configparser.ConfigParser()
+   ini_path = os.path.join(root_path(), "build.ini")
+   ini.read(ini_path)
+   return ini
+
+
+def read_paths():
+   return read_ini()["Paths"]
+
+
 def build_path():
    return os.path.join(root_path(), configuration())
 
 
 def skyrim_path():
-   return r"C:\Program Files (x86)\Steam\steamapps\common\Skyrim"
+   return read_paths()["skyrim"]
 
 
 def papyrus_compiler_path():
@@ -53,7 +65,7 @@ def compiled_scripts_path():
 
 
 def msbuild_path():
-   return r"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+   return read_paths()["msbuild"]
 
 
 def run_command(command):
